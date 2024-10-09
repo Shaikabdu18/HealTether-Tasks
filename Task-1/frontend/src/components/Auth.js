@@ -4,7 +4,7 @@ import axios from 'axios';
 const Auth = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
-  const [isRegistering, setIsRegistering] = useState(true); // New state to track form type
+  const [isRegistering, setIsRegistering] = useState(true); 
 
   const handleChange = (e) => {
     setFormData({
@@ -21,10 +21,9 @@ const Auth = () => {
       const response = await axios.post('http://localhost:4000/api/users/register', formData);
       if (response.status === 201) {
         alert('Registration successful! Please log in.');
-        setIsRegistering(false); // Switch to login form
+        setIsRegistering(false); 
       }
     } catch (error) {
-      // Display exact error messages from the server
       const errorMsg = error.response?.data?.msg || error.response?.data?.errors.map(err => err.msg).join(', ') || error.message;
       alert('Error during registration: ' + errorMsg);
     } finally {
@@ -42,7 +41,6 @@ const Auth = () => {
         alert('Login successful!');
       }
     } catch (error) {
-      // Display exact error messages from the server
       const errorMsg = error.response?.data?.msg || error.message;
       alert('Error during login: ' + errorMsg);
     } finally {

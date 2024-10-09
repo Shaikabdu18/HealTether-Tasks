@@ -1,4 +1,3 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/authSlice';
@@ -12,8 +11,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Replace this with actual API call
-    // For demonstration, we'll use hardcoded credentials
+
     if (email === 'test@example.com' && password === 'password') {
       dispatch(login({ email }));
       alert('Login successful!');
