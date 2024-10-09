@@ -1,0 +1,10 @@
+/* src/App.css */
+.App {
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  margin-bottom: 40px;
+  color: #333;
+}

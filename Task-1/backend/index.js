@@ -1,12 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require("./routes/userRoutes");
+const cors = require('cors');
 require('dotenv').config();
 const app = express();
 
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 app.use('/api/users', userRoutes);
 
 // MongoDB connection
@@ -23,7 +25,7 @@ database.on("connected",()=>{
   
 })
 
-app.listen(3000,()=>{
-  console.log("Server Starts at Port 3000");
+app.listen(4000,()=>{
+  console.log("Server Starts at Port 4000");
   
 })
