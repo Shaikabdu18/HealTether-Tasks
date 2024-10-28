@@ -6,20 +6,19 @@ const generateToken = (userId) => {
 };
 
 exports.register = async (req, res) => {
-  const { username, password } = req.body;
+  const { username,password } = req.body;
   try {
-    const user = await User.create({ username, password });
-    const token = generateToken(user._id);
-    res.status(201).json({ user, token });
+    const user = await User.create({ username,password });
+    res.status(201).json({ msg:"User created successfully"});
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 };
 
 exports.login = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   try {
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
     if (!user || !(await user.matchPassword(password))) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
